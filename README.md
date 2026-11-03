@@ -12,7 +12,7 @@ O Sistema de Gerenciamento de Estoque foi desenvolvido com o objetivo de aplicar
 
 A aplicação permite organizar produtos, acompanhar a quantidade disponível e calcular o valor total dos itens cadastrados.
 
-O código foi dividido em funções, separando as principais operações do sistema para facilitar a organização, a manutenção e a reutilização.
+O código foi organizado em funções, separando as principais operações do sistema para facilitar a compreensão, a manutenção e a reutilização.
 
 ## ⚙️ Funcionalidades
 
@@ -21,7 +21,7 @@ O sistema possui sete opções principais:
 | Opção | Funcionalidade | Descrição |
 |:---:|---|---|
 | 01 | Cadastrar produtos | Adiciona novos produtos ao estoque. |
-| 02 | Atualizar produtos | Atualiza a quantidade e o preço de produtos já cadastrados. |
+| 02 | Atualizar produtos | Atualiza a quantidade, o preço e a categoria de produtos cadastrados. |
 | 03 | Consultar estoque | Exibe os produtos, categorias, quantidades e preços. |
 | 04 | Valor total | Calcula o valor total dos produtos armazenados. |
 | 05 | Estoque baixo | Identifica produtos que estão abaixo de uma quantidade definida. |
@@ -31,83 +31,31 @@ O sistema possui sete opções principais:
 ## 💻 Tecnologias utilizadas
 
 - **Python:** linguagem utilizada no desenvolvimento da aplicação.
-- **Google Colab:** ambiente utilizado para desenvolver e executar o projeto.
-- **Dicionários:** armazenamento das informações dos produtos.
-- **Listas:** organização dos dados de cada produto.
+- **Dicionários:** armazenamento dos produtos e suas informações.
+- **Listas:** organização dos dados de cada produto, como quantidade, preço e categoria.
 
 ## 🧠 Conceitos de programação aplicados
 
 Durante o desenvolvimento, foram utilizados:
 
 - **Funções:** divisão das funcionalidades em blocos independentes.
-- **Estruturas condicionais:** utilização de `if`, `elif` e `else` para controlar as opções.
+- **Estruturas condicionais:** utilização de `if`, `elif` e `else` para controlar as operações.
 - **Estruturas de repetição:** utilização de `while` e `for` para manter o menu ativo e percorrer os produtos.
-- **Dicionários:** armazenamento dos produtos e de suas informações.
-- **Listas:** organização de quantidade, preço e categoria.
-- **Tratamento de erros:** utilização de `try` e `except` para evitar erros na entrada de valores numéricos.
-- **Manipulação de strings:** utilização de `strip()` e `title()` para padronizar os nomes dos produtos.
-- **Validação de dados:** verificações para impedir quantidades negativas, preços inválidos e saídas maiores que o estoque disponível.
-- **Modularização:** separação das funções em um arquivo independente (`estoque.py`).
+- **Dicionários:** armazenamento dos produtos utilizando seus nomes como identificação.
+- **Listas:** organização das informações de cada produto.
+- **Tratamento de erros:** utilização de `try` e `except` para evitar interrupções quando o usuário digita valores não numéricos.
+- **Manipulação de strings:** utilização de `strip()` e `title()` para padronizar os nomes e categorias.
+- **Validação de dados:** verificações para impedir valores negativos e saídas maiores que a quantidade disponível.
+- **Operadores aritméticos:** cálculos de quantidade e valor total do estoque.
 
 ## 📂 Estrutura do projeto
 
-O projeto está organizado em dois arquivos principais:
+O projeto está organizado em um único arquivo Python, contendo todas as funções e o menu principal.
 
 ```text
 gerenciamento-de-estoque/
 │
 ├── estoque.py
-│   └── Funções responsáveis pelas operações do estoque.
+│   └── Funções e menu principal do sistema.
 │
-├── main.py
-│   └── Menu principal e interação com o usuário.
-│
-└── README.md
-    └── Documentação do projeto.
-```
-
-## ▶️ Como executar o projeto
-
-**1. Clone o repositório:**
-
-```bash
-git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-```
-
-**2. Acesse a pasta do projeto:**
-
-```bash
-cd gerenciamento-de-estoque
-```
-
-**3. Execute o programa:**
-
-```bash
-python main.py
-```
-
-> É necessário ter o Python instalado no computador. Os arquivos `main.py` e `estoque.py` devem permanecer na mesma pasta para que a importação das funções funcione corretamente.
-
-## 📷 Demonstração
-
-O sistema apresenta um menu interativo no terminal, permitindo que o usuário escolha as operações de gerenciamento.
-
-*Adicione aqui capturas de tela mostrando o cadastro de produtos, a consulta do estoque e o registro de entrada ou saída.*
-
-## 🎯 Objetivo acadêmico
-
-O projeto tem como finalidade desenvolver conhecimentos práticos em Python, trabalhando principalmente com funções, estruturas de repetição, condicionais, listas, dicionários e tratamento de erros.
-
-Além disso, busca demonstrar como a programação pode ser utilizada para solucionar situações do cotidiano, como o controle e a organização de produtos em um estoque.
-
-## 👩‍💻 Autora
-
-**Marina Alves**
-
-Estudante de Análise e Desenvolvimento de Sistemas — 2º semestre
-
-UDF — Centro Universitário
-
----
-
-*Projeto acadêmico desenvolvido para fins de aprendizagem e prática de programação em Python.*
+└
