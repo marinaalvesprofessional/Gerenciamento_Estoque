@@ -58,4 +58,66 @@ gerenciamento-de-estoque/
 ├── estoque.py
 │   └── Funções e menu principal do sistema.
 │
-└
+└── README.md
+    └── Documentação do projeto.
+```
+
+## ▶️ Como executar o projeto
+
+**1. Clone o repositório:**
+
+```bash
+git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
+```
+
+**2. Acesse a pasta do projeto:**
+
+```bash
+cd gerenciamento-de-estoque
+```
+
+**3. Execute o programa:**
+
+```bash
+python estoque.py
+```
+
+> É necessário ter o Python instalado no computador.
+
+## 💾 Armazenamento de dados
+
+Atualmente, os produtos são armazenados em um dicionário durante a execução do programa.
+
+Isso significa que as informações cadastradas permanecem disponíveis enquanto o sistema está aberto, mas são perdidas quando o programa é encerrado.
+
+Uma possível melhoria futura seria implementar o armazenamento em arquivos JSON ou em um banco de dados MySQL.
+
+## 📷 Demonstração
+
+O sistema apresenta um menu interativo no terminal, permitindo que o usuário escolha as operações de gerenciamento.
+
+Sugestões de capturas de tela:
+
+- Menu principal do sistema.
+- Cadastro de um novo produto.
+- Consulta dos produtos cadastrados.
+- Cálculo do valor total do estoque.
+- Registro de entrada e saída de produtos.
+
+## 🎯 Objetivo acadêmico
+
+O projeto tem como finalidade desenvolver conhecimentos práticos em Python, trabalhando principalmente com funções, estruturas condicionais, estruturas de repetição, listas, dicionários e tratamento de erros.
+
+Além disso, busca demonstrar como a programação pode ser utilizada para solucionar situações do cotidiano, como o controle e a organização de produtos em um estoque.
+
+## 👩‍💻 Autora
+
+**Marina Alves**
+
+Estudante de Análise e Desenvolvimento de Sistemas — 2º semestre
+
+UDF — Centro Universitário
+
+---
+
+*Projeto acadêmico desenvolvido para fins de aprendizagem e prática de programação em Python.*
