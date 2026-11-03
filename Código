@@ -1,0 +1,180 @@
+# ==========================================
+# SISTEMA DE GERENCIAMENTO DE ESTOQUE
+# ==========================================
+
+estoque = {}
+
+
+# Função para receber números válidos
+def ler_numero(mensagem):
+    while True:
+        try:
+            return float(input(mensagem))
+        except ValueError:
+            print("Erro! Digite um número válido.")
+
+
+# 1. Cadastrar ou atualizar produto
+def cadastrar_produto():
+    print("\n--- CADASTRAR PRODUTO ---")
+
+    nome = input("Nome do produto: ").strip().title()
+
+    if nome == "":
+        print("Erro: nome do produto vazio!")
+        return
+
+    quantidade = ler_numero("Quantidade: ")
+    preco = ler_numero("Preço: R$ ")
+    categoria = input("Categoria: ").strip().title()
+
+    if quantidade < 0 or preco < 0:
+        print("Erro: quantidade e preço não podem ser negativos!")
+        return
+
+    if nome in estoque:
+        estoque[nome][0] += quantidade
+        estoque[nome][1] = preco
+        estoque[nome][2] = categoria
+
+        print("Produto atualizado com sucesso!")
+
+    else:
+        estoque[nome] = [quantidade, preco, categoria]
+        print("Produto cadastrado com sucesso!")
+
+
+# 2. Consultar produtos cadastrados
+def consultar_estoque():
+    print("\n--- CONSULTAR ESTOQUE ---")
+
+    if len(estoque) == 0:
+        print("Estoque vazio!")
+        return
+
+    for nome, dados in estoque.items():
+        print(f"\nProduto: {nome}")
+        print(f"Categoria: {dados[2]}")
+        print(f"Quantidade: {int(dados[0])}")
+        print(f"Preço: R$ {dados[1]:.2f}")
+
+
+# 3. Calcular valor total do estoque
+def calcular_total():
+    total = 0
+
+    for dados in estoque.values():
+        total += dados[0] * dados[1]
+
+    print(f"\nValor total do estoque: R$ {total:.2f}")
+
+
+# 4. Verificar produtos com estoque baixo
+def verificar_estoque():
+    print("\n--- ESTOQUE BAIXO ---")
+
+    limite = ler_numero("Digite o limite mínimo: ")
+    encontrou = False
+
+    for nome, dados in estoque.items():
+
+        if dados[0] <= limite:
+            print(f"Produto: {nome}")
+            print(f"Quantidade: {int(dados[0])}")
+            encontrou = True
+
+    if encontrou == False:
+        print("Nenhum produto com estoque baixo.")
+
+
+# 5. Registrar entrada de produtos
+def entrada_produto():
+    print("\n--- REGISTRAR ENTRADA ---")
+
+    nome = input("Nome do produto: ").strip().title()
+
+    if nome not in estoque:
+        print("Produto não encontrado!")
+        return
+
+    quantidade = ler_numero("Quantidade que entrou: ")
+
+    if quantidade <= 0:
+        print("Erro: quantidade deve ser maior que zero!")
+        return
+
+    estoque[nome][0] += quantidade
+
+    print("Entrada registrada com sucesso!")
+    print(f"Novo estoque: {int(estoque[nome][0])} unidades.")
+
+
+# 6. Registrar saída de produtos
+def saida_produto():
+    print("\n--- REGISTRAR SAÍDA ---")
+
+    nome = input("Nome do produto: ").strip().title()
+
+    if nome not in estoque:
+        print("Produto não encontrado!")
+        return
+
+    quantidade = ler_numero("Quantidade que saiu: ")
+
+    if quantidade <= 0:
+        print("Erro: quantidade deve ser maior que zero!")
+
+    elif quantidade <= estoque[nome][0]:
+        estoque[nome][0] -= quantidade
+
+        print("Saída registrada com sucesso!")
+        print(f"Quantidade restante: {int(estoque[nome][0])}")
+
+    else:
+        print("Quantidade insuficiente no estoque!")
+
+
+# ==========================================
+# MENU PRINCIPAL
+# ==========================================
+
+while True:
+
+    print("\n================================")
+    print("     SISTEMA DE GERENCIAMENTO")
+    print("================================")
+    print("1 - Cadastrar ou atualizar produto")
+    print("2 - Consultar estoque")
+    print("3 - Calcular valor total")
+    print("4 - Verificar estoque baixo")
+    print("5 - Registrar entrada")
+    print("6 - Registrar saída")
+    print("7 - Sair")
+    print("================================")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        cadastrar_produto()
+
+    elif opcao == "2":
+        consultar_estoque()
+
+    elif opcao == "3":
+        calcular_total()
+
+    elif opcao == "4":
+        verificar_estoque()
+
+    elif opcao == "5":
+        entrada_produto()
+
+    elif opcao == "6":
+        saida_produto()
+
+    elif opcao == "7":
+        print("\nSistema encerrado. Até mais!")
+        break
+
+    else:
+        print("\nOpção inválida! Tente novamente.")
